@@ -9,7 +9,7 @@ using namespace std;
 int main (int argc, char **argv)
 {
 	int rank, size;
-	char Val;
+	char Val=0;
 	int i;
 	double t0=0.0,tf=0.0;
 
@@ -44,7 +44,7 @@ int main (int argc, char **argv)
 	if(rank == 0)
 	{
 	tf = MPI_Wtime();
-	printf("Latencia: %1.10f ns\n", (tf-t0));
+	printf("Latencia: %1.8f ms con el caracter «%c» \n", 1000*(tf-t0),Val);
 	}
 
 	MPI_Finalize();
